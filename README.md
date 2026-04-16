@@ -1,71 +1,88 @@
 # 2048 Game
 
-A browser-based implementation of the classic **2048 puzzle game**, built with vanilla JavaScript, HTML, and SCSS.
+## Introduction
+
+Welcome to the **2048 Game** project, a vanilla JavaScript implementation of the classic 2048 puzzle game. Players slide numbered tiles on a 4×4 grid, merging matching tiles to reach the **2048** tile. The game is built with modern web technologies and delivers a smooth, responsive experience across all devices.
 
 ## Live Demo
 
 [Play the game](https://eg598.github.io/2048-game/)
 
-## About the Project
+## Key Features
 
-The goal is to slide numbered tiles on a 4×4 grid and merge matching tiles to reach the **2048** tile. Each move spawns a new tile (2 or 4) in a random empty cell. The game ends when no moves are left.
+- **Tile Movement and Merging**: Accurate logic for sliding and combining tiles in all four directions using arrow keys.
+- **Random Tile Spawning**: After every valid move, a new tile (2 with 90% chance, 4 with 10% chance) appears in a random empty cell.
+- **Score Tracking**: Real-time score updates as tiles are merged throughout the game.
+- **Win and Lose Conditions**: The game detects when the player reaches 2048 (win) or has no valid moves remaining (lose) and displays the appropriate message.
+- **Restart Functionality**: A Start/Restart button lets the player reset the board at any time.
+- **Responsive Design**: The layout adapts to desktops, tablets, and mobile screens.
 
-### Game Rules
+## Challenges
 
-- Use **arrow keys** to slide all tiles in a direction
-- Two tiles with the **same number** merge into one when they collide
-- A new tile (**2** with 90% chance, **4** with 10% chance) appears after every valid move
-- **Win** by creating a tile with the value `2048`
-- **Lose** when the board is full and no merges are possible
+Building this project presented several non-trivial problems that required careful design decisions.
 
-## Technologies Used
+**Key Challenges:**
 
-- **JavaScript (ES6+)** — Game logic and DOM manipulation
-- **SCSS** — Styling with nested rules and BEM-like class naming
-- **HTML5** — Semantic table-based game grid
-- **Parcel** — Bundler and dev server
-- **ESLint / Stylelint / LintHTML** — Code quality
+- **Tile Movement Logic**: Correctly shifting and merging tiles along each axis while preventing double-merges in a single move required precise array manipulation.
+- **Game State Management**: Tracking the board configuration, score, and game status (idle / playing / won / lost) without external libraries demanded disciplined state handling.
+- **Win/Lose Detection**: Efficiently checking for available moves when the board is full — without false positives — needed thorough edge-case coverage.
+- **Responsive Layout**: Keeping the grid visually consistent and playable across a wide range of screen sizes involved careful SCSS structuring.
 
-```
+## Technical Requirements
 
-## Getting Started
+To run this project locally, you will need:
 
-### Prerequisites
+- A modern web browser (latest versions of Chrome, Firefox, Safari, or Edge)
+- Node.js (version 16.x or newer)
+- npm (version 8.x or newer)
 
-- Node.js v16+
-- npm
-
-### Installation
+## Installation and Setup
 
 1. Clone the repository:
 
 ```bash
 git clone https://github.com/eg598/2048-game.git
+```
+
+2. Navigate to the project directory:
+
+```bash
 cd 2048-game
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Start the development server:
+4. Start the local development server:
 
 ```bash
 npm start
 ```
 
-### Lint
+## Usage
 
-```bash
-npm run lint
-```
+After starting the project, it will be available at `http://localhost:1234`.
 
-## How to Play
-
-1. Click **Start** to begin
-2. Use **Arrow Keys** to move tiles
-3. Merge tiles of the same value to double them
+1. Click **Start** to initialize the board
+2. Use **Arrow Keys** (↑ ↓ ← →) to slide all tiles in a direction
+3. Tiles with the **same number** merge when they collide — their values are added together
 4. Reach the **2048** tile to win
-5. Click **Restart** at any time to reset the board
+5. Click **Restart** at any time to reset the board and score
+
+## Technologies Used
+
+- **HTML5** — Semantic table-based game grid
+- **CSS3 / SCSS** — Styling with nested rules and BEM-like class naming
+- **JavaScript (ES6+)** — Game logic and DOM manipulation
+- **Parcel** — Module bundler and development server
+- **ESLint / Stylelint / LintHTML** — Code quality enforcement
+- **Git / GitHub** — Version control and repository hosting
+
+## Design Specifications
+
+- **Desktop**: 1280px
+- **Tablet**: 640px
+- **Mobile**: 320px+
